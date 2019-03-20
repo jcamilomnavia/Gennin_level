@@ -7,9 +7,6 @@ class Estudiante {
     }
 }
 
-function inicializar(){
-    let estudiante1 = new Estudiante('nombre', 'jorge.gaviria@gmail.com', '1000409003', 'Pruebas')
-    let estudiante2 = new Estudiante('nombre', 'jorge.gaviria@gmail.com', '1000409003', 'Pruebas')
-}
+let estudiante1 = new Estudiante('nombre', 'jorge.gaviria@gmail.com', '1000409003', 'Pruebas')
+let estudiante2 = new Estudiante('nombre', 'jorge.gaviria@gmail.com', '1000409003', 'Pruebas')
 
-inicializar()
