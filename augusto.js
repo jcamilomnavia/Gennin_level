@@ -1,5 +1,3 @@
-// crear una clase para estudiante df
-// Nombre, Email, ID, Nivel
 class EstudianteDevF {
     constructor(name, email, id, nivel) {
         this.name = name;
