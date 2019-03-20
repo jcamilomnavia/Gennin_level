@@ -1,14 +1,11 @@
-// crear una clase para estudiante df
-// Nombre, Email, ID, Nivel
-
-class estudianteDevF {
-    constructor(name, email, id) {
-        this.name = name,
-        this.email = email,
-        this.id = id
+class EstudianteDevF {
+    constructor(name, email, id, nivel) {
+        this.name = name;
+        this.email = email;
+        this.id = id;
+        this.nivel = nivel;
     }
 }
 
-const estudiante1 = new estudianteDevF('David', 'aag@asdasd.com', '12312312');
-
-const estudiante2 = new estudianteDevF('Augusto', 'jojojo@hotmail.com', '730459')
+const estudiante1 = new EstudianteDevF('David', 'aag@asdasd.com', '12312312', 'Genin');
+const estudiante2 = new EstudianteDevF('Augusto', 'jojojo@hotmail.com', '730459', 'Genin');
