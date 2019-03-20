@@ -1,29 +1,29 @@
-class Estudiante{
-    constructor(id,nombre,email,nivel){
+class Estudiante {
+    constructor(id, nombre, email, nivel) {
         this.id = id;
         this.nombre = nombre;
         this.email = email;
         this.nivel = nivel;
     }
 
-    getId(){
+    getId() {
         return this.id;
     }
 
-    setId(id){
+    setId(id) {
         this.id = id;
     }
 
-    getNombre(){
+    getNombre() {
         return this.nombre;
     }
 
-    setId(id){
+    setNombre(nombre) {
         this.nombre = nombre;
     }
 }
 
-let estudianteUno = new Estudiante("1","john","john.florez@live.com","roja");
-let estudianteDos = new Estudiante("2","john","john.florez@live.com","negra");
+let estudianteUno = new Estudiante("1", "john", "john.florez@live.com", "roja");
+let estudianteDos = new Estudiante("2", "john", "john.florez@live.com", "negra");
 
 console.log(estudianteUno);
