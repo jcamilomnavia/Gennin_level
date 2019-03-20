@@ -1,4 +1,4 @@
-class Sede {
+class Office {
     constructor(nombre, ciudad, estudiantes, senseis) {
         this.nombre;
         this.ciudad;
@@ -7,4 +7,4 @@ class Sede {
     }
 }
 
-module.exports = Sede;
+module.exports = Office;
