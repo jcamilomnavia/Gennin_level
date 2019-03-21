@@ -1,12 +1,12 @@
 class Sensei {
-    constructor(nombre, añosDeExperiencia, edad, email, id, salario) {
-        this.nombre = nombre;
-        this.añosDeExperiencia = añosDeExperiencia;
-        this.edad = edad;
-        this.email = email;
-        this.id = id;
-        this.salario = salario;
-    }
+  constructor (name, yearsOfExperience, age, email, id, salary) {
+    this.name = name
+    this.yearsOfExperience = yearsOfExperience
+    this.age = age
+    this.email = email
+    this.id = id
+    this.salary = salary
+  }
 }
 
-module.exports = Sensei;
+module.exports = Sensei
