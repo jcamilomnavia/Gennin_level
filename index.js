@@ -1,5 +1,9 @@
-const Country = require('./models/Country')
+const models = require('./models')
+const utils = require('./utils/commonUtils')
 
-const country = new Country('Colombia', 'Selina', 11, 3)
+const country = new models.Country('Colombia', 'Selina', 11, 3)
 
-console.log('hola cintas negras')
+utils.base_url
+utils.printConstant()
+utils.printParam(country)
+utils.callCallBack('5', utils.printValue)
