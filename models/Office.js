@@ -1,8 +1,8 @@
 class Office {
-  constructor (nombre, ciudad, estudiantes, senseis) {
-    this.nombre = nombre
-    this.ciudad = ciudad
-    this.estudiantes = estudiantes
+  constructor (name, city, student, senseis) {
+    this.name = name
+    this.city = city
+    this.student = student
     this.senseis = senseis
   }
 }
