@@ -1,1 +1,1 @@
-console.log("hola cintas negras")
+console.log('hola cintas negras')
