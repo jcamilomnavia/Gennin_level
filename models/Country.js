@@ -1,9 +1,9 @@
 class Country {
   constructor (name, office, totalStudents, totalSenseis) {
-    this.Name = nombre
-    this.Offices = sedes
-    this.TotalStudents = totalEstudiantes
-    this.TotalSenseis = totalSenseis
+    this.name = name
+    this.offices = office
+    this.totalStudents = totalStudents
+    this.totalSenseis = totalSenseis
   }
 }
 
