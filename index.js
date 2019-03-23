@@ -1,5 +1,22 @@
-const Country = require('./models/Country')
+const express = require('express')
+const db = require('./services/db')
 
-const country = new Country('Colombia', 'Selina', 11, 3)
+const countryRoutes = require('./routes/countryRoute')
 
-console.log('hola cintas negras')
+const PORT = process.env.PORT
+
+const app = express()
+const dbConnection = db.connectDb()
+
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
+
+app.use('/country', countryRoutes)
+
+dbConnection.then(() => {
+  console.log('connected to DB')
+})
+
+app.listen(PORT, () => {
+  console.log(`connected to port ${PORT}`)
+})
