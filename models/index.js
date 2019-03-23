@@ -4,8 +4,8 @@ const Sensei = require('./Sensei')
 const Student = require('./Student')
 
 module.exports = {
-    Country, 
-    Office,
-    Sensei,
-    Student
+  Country,
+  Office,
+  Sensei,
+  Student
 }
