@@ -1,0 +1,31 @@
+type Query {
+    hello(name: String): String
+    Sum(value1:Int!, value2:Int!):Int
+    User(id:ID!):User
+    Users:[User]
+    SearchUser(key:String!):[User]
+    Countries:Contry
+}
+
+type Mutation{
+    CreateUser(data: UserInput): User
+}
+
+type User{
+    _id:ID
+    name:String!
+    email:String!
+    level:Int!
+    password:String!
+}
+
+type Contry{
+    name: String
+}
+
+input UserInput{
+    name:String!
+    email:String!
+    level:Int!
+    password:String!
+}
