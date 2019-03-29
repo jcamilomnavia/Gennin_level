@@ -15,7 +15,14 @@ const updateUser = (id, data) => {
     .then((userUpdated) => userUpdated)
 }
 
+const addPost = (id, data) => {
+  return User.findOneAndUpdate({ _id: id }, { $addToSet: { posts: data } }, { new: true })
+    .populate({ path: 'posts' })
+    .then((userUpdated) => userUpdated)
+}
+
 module.exports = {
   createUser,
-  updateUser
+  updateUser,
+  addPost
 }

@@ -11,6 +11,7 @@ type Query{
 type Mutation{
     CreateUser(data: UserInput!): User
     UpdateUser(id:ID!, data: UserUpdateInput!): User
+    AddPost(id: ID!, post: ID!): User
 
     CreatePost(data: PostInput!): Post
     UpdatePost(id:ID!, data:PostUpdateInput!):Post
