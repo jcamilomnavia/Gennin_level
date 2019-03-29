@@ -25,3 +25,10 @@
     PORT=<port> USER=<user> npm run dev
     ```
 - ```sh run_dev.sh```
+
+## Run GraphQL ##
+
+```
+#!/bin/bash
+PORT=4000 DB_URL=mongodb+srv://<user>:<password>@intime-ybwup.mongodb.net/<db_name>?retryWrites=true npm run dev
+```

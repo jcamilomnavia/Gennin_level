@@ -1,22 +1,24 @@
-const express = require('express')
-const db = require('./services/db')
+const { GraphQLServer } = require('graphql-yoga')
+const { importSchema } = require('graphql-import')
+const { makeExecutableSchema } = require('graphql-tools')
 
-const countryRoutes = require('./routes/countryRoute')
+const typeDefs = importSchema('./schemas.graphql')
+const resolvers = require('./resolvers')
+
+const db = require('./services/db')
 
 const PORT = process.env.PORT
 
-const app = express()
 const dbConnection = db.connectDb()
 
-app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
-
-app.use('/country', countryRoutes)
+const schema = makeExecutableSchema({
+  typeDefs,
+  resolvers
+})
 
 dbConnection.then(() => {
-  console.log('connected to DB')
+  console.log('Database Connected!!')
 })
 
-app.listen(PORT, () => {
-  console.log(`connected to port ${PORT}`)
-})
+const server = new GraphQLServer({ schema })
+server.start({ port: PORT }, () => console.log(`Server is running on localhost: ${PORT}`))
