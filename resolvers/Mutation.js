@@ -1,50 +1,14 @@
-const Country = require('../models/Country')
-const User = require('../models/User')
-const Post = require('../models/Post')
+const { userAction, postAction } = require('../actions')
 
-// const createContries = (_, { data }) => {
-//   const { name, cities, totalStudents, totalSenseis, imgUrl } = data
-//   return Country.create({ name, cities, totalStudents, totalSenseis, imgUrl })
-//     .then((countries) => {
-//       return countries
-//     })
-//     .catch((err) => {
-//       console.log(err)
-//     })
-// }
+const CreateUser = (_, args) => userAction.createUser(args.data)
+const UpdateUser = (_, args) => userAction.updateUser(args.id, args.data)
 
-const CreateUser = (_, { data }) => {
-  const { name, email, level, password } = data
-  console.log(data)
-  return User.create({ name, email, level, password })
-    .then((user) => {
-      return user
-    })
-    .catch((err) => {
-      console.log(err)
-    })
-}
-
-const CreatePost = (_, { data }) => {
-  const { name, email, level, password } = data
-  console.log(data)
-  return Post.create({ name, email, level, password })
-    .then((user) => {
-      return user
-    })
-    .catch((err) => {
-      console.log(err)
-    })
-}
-
-const UpdateUserPost = (_, { data }) => {
-  const { id, posts } = data
-  // findOneAndUpdate
-  return User.findByIdAndUpdate({ _id: id }, { $set: { posts } })
-    .then((userUpdated) => userUpdated)
-}
+const CreatePost = (_, args) => postAction.createPost(args.data)
+const UpdatePost = (_, args) => postAction.updatePost(args.id, args.data)
 
 module.exports = {
   CreateUser,
-  UpdateUserPost
+  UpdateUser,
+  CreatePost,
+  UpdatePost
 }

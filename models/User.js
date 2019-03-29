@@ -5,6 +5,10 @@ const UserSchema = new mongoose.Schema({
   email: String,
   level: { type: Number, default: 0, required: true },
   password: { type: String, required: true },
+  course: [{
+    name: String,
+    hour: Number
+  }],
   posts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Post' }]
 })
 

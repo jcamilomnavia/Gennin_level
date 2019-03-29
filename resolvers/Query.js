@@ -1,6 +1,7 @@
 const Country = require('../models/Country')
 const mock = require('../mock')
 const UserSchema = require('../models/User')
+const Post = require('../models/Post')
 
 const hello = (_, { name }) => `Hello ${name || 'World'}`
 
@@ -24,6 +25,7 @@ const Countries = (_) => {
 
 const User = (_, { id }) => {
   return UserSchema.findOne({ _id: id }).exec()
+    .populate({ path: 'posts' }).exec()
     .then((user) => {
       return user
     })
@@ -33,11 +35,18 @@ const User = (_, { id }) => {
 }
 
 const Users = (_) => {
-  console.log('getting users')
-  return UserSchema.find().exec()
-    .then((users) => {
-      return users
+  return UserSchema.find()
+  // { path: 'histories', populate: { path: 'places' } }
+    .populate({ path: 'posts' }).exec()
+    .then((users) => users)
+    .catch((err) => {
+      console.log(`user not exist err ${err}`)
     })
+}
+
+const Posts = (_) => {
+  return Post.find().exec()
+    .then((users) => users)
     .catch((err) => {
       console.log(`user not exist err ${err}`)
     })
@@ -49,5 +58,6 @@ module.exports = {
   User,
   Users,
   SearchUser,
-  Countries
+  Countries,
+  Posts
 }
