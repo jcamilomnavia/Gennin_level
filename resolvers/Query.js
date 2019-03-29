@@ -1,7 +1,6 @@
 const Country = require('../models/Country')
 const mock = require('../mock')
-const UserSchema = require('../models/User')
-const Post = require('../models/Post')
+const { userAction, postAction } = require('../actions')
 
 const hello = (_, { name }) => `Hello ${name || 'World'}`
 
@@ -23,34 +22,10 @@ const Countries = (_) => {
     })
 }
 
-const User = (_, { id }) => {
-  return UserSchema.findOne({ _id: id }).exec()
-    .populate({ path: 'posts' }).exec()
-    .then((user) => {
-      return user
-    })
-    .catch((err) => {
-      console.log(`user not exist err ${err}`)
-    })
-}
+const User = (_, args) => userAction.user(args.id)
+const Users = (_) => userAction.users()
 
-const Users = (_) => {
-  return UserSchema.find()
-  // { path: 'histories', populate: { path: 'places' } }
-    .populate({ path: 'posts' }).exec()
-    .then((users) => users)
-    .catch((err) => {
-      console.log(`user not exist err ${err}`)
-    })
-}
-
-const Posts = (_) => {
-  return Post.find().exec()
-    .then((users) => users)
-    .catch((err) => {
-      console.log(`user not exist err ${err}`)
-    })
-}
+const Posts = (_) => postAction.posts()
 
 module.exports = {
   hello,
