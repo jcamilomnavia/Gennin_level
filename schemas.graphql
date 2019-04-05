@@ -18,10 +18,10 @@ type Mutation{
 
 type User{
     _id:ID
-    name:String!
-    email:String!
-    level:Int!
-    password:String!
+    name:String
+    email:String
+    level:Int
+    password:String
     course:[Course]
     posts:[Post]
 }
