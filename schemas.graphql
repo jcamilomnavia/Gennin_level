@@ -43,7 +43,7 @@ type Contry{
 }
 
 input UserInput{
-    name:String!
+    name:String
     email:String!
     password:String!
 }
