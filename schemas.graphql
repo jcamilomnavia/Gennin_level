@@ -6,6 +6,7 @@ type Query{
     SearchUser(key:String!):[User]
     Countries:Contry
     Posts:[Post]
+    login(email:String, password:String): String
 }
 
 type Mutation{
@@ -43,7 +44,7 @@ type Contry{
 }
 
 input UserInput{
-    name:String!
+    name:String
     email:String!
     password:String!
 }
