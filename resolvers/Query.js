@@ -3,6 +3,8 @@ const mock = require('../mock')
 const UserSchema = require('../models/User')
 const Post = require('../models/Post')
 
+const { authAction } = require('../actions')
+
 const hello = (_, { name }) => `Hello ${name || 'World'}`
 
 const Sum = (_, { value1, value2 }) => (value1 + value2)
@@ -52,6 +54,14 @@ const Posts = (_) => {
     })
 }
 
+const login = (_, args) => {
+  return authAction.login(args.email, args.password)
+    .then(user => user)
+    .catch((err) => {
+      console.log(`user not exist err ${err}`)
+    })
+}
+
 module.exports = {
   hello,
   Sum,
@@ -59,5 +69,6 @@ module.exports = {
   Users,
   SearchUser,
   Countries,
-  Posts
+  Posts,
+  login
 }
