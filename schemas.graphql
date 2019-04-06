@@ -3,12 +3,15 @@ type Query{
     Sum(value1:Int!, value2:Int!):Int
     User(id:ID!):User
     Users:[User]
-    SearchUser(key:String!):[User]
+    SearchUser(email:String!):User
     Posts:[Post]
+
     login(email:String, password:String): String
 }
 
 type Mutation{
+    signUp(data: UserInput!):String
+    
     CreateUser(data: UserInput!): User
     UpdateUser(id:ID!, data: UserUpdateInput!): User
     AddPost(id: ID!, post: ID!): User

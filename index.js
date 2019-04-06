@@ -20,5 +20,8 @@ dbConnection.then(() => {
   console.log('Database Connected!!')
 })
 
-const server = new GraphQLServer({ schema })
+const server = new GraphQLServer({
+  schema,
+  context: req => ({ ...req })
+})
 server.start({ port: PORT }, () => console.log(`Server is running on localhost: ${PORT}`))
