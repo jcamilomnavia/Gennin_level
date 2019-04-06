@@ -1,5 +1,13 @@
 const UserSchema = require('../models/User')
 
+const searchUserByEmail = (email) => {
+  return UserSchema.findOne({ email })
+    .then((user) => user)
+    .catch((err) => {
+      console.log(`user not exist err ${err}`)
+    })
+}
+
 const createUser = (data) => {
   const { name, email, level, password } = data
   return UserSchema.create({ name, email, level, password })
@@ -28,7 +36,6 @@ const user = (id) => {
 
 const users = () => {
   return UserSchema.find()
-  // { path: 'histories', populate: { path: 'places' } }
     .populate({ path: 'posts' }).exec()
     .then((users) => users)
     .catch((err) => {
@@ -36,9 +43,17 @@ const users = () => {
     })
 }
 
+const addPost = (id, data) => {
+  return UserSchema.findOneAndUpdate({ _id: id }, { $addToSet: { posts: data } }, { new: true })
+    .populate({ path: 'posts' })
+    .then((userUpdated) => userUpdated)
+}
+
 module.exports = {
+  searchUserByEmail,
   createUser,
   updateUser,
   user,
-  users
+  users,
+  addPost
 }
