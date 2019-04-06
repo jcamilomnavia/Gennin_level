@@ -12,7 +12,16 @@ const updatePost = (id, data) => {
     .then((postUpdated) => postUpdated)
 }
 
+const posts = () => {
+  return Post.find().exec()
+    .then((users) => users)
+    .catch((err) => {
+      console.log(`user not exist err ${err}`)
+    })
+}
+
 module.exports = {
   createPost,
-  updatePost
+  updatePost,
+  posts
 }

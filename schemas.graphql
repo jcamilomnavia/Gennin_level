@@ -4,7 +4,6 @@ type Query{
     User(id:ID!):User
     Users:[User]
     SearchUser(key:String!):[User]
-    Countries:Contry
     Posts:[Post]
     login(email:String, password:String): String
 }
@@ -20,10 +19,10 @@ type Mutation{
 
 type User{
     _id:ID
-    name:String!
-    email:String!
-    level:Int!
-    password:String!
+    name:String
+    email:String
+    level:Int
+    password:String
     course:[Course]
     posts:[Post]
 }
@@ -37,10 +36,6 @@ type Post{
     _id:ID
     title:String!
     content:String!
-}
-
-type Contry{
-    name: String
 }
 
 input UserInput{
