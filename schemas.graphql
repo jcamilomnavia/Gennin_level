@@ -5,11 +5,10 @@ type Query{
     Users:[User]
     SearchUser(email:String!):User
     Posts:[Post]
-
-    login(email:String, password:String): String
 }
 
 type Mutation{
+    login(email:String, password:String): String
     signUp(data: UserInput!):String
     
     CreateUser(data: UserInput!): User

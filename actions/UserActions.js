@@ -1,5 +1,13 @@
 const UserSchema = require('../models/User')
 
+const searchUserById = (id) => {
+  return UserSchema.findById(id)
+    .then((user) => user)
+    .catch((err) => {
+      console.log(`user not exist err ${err}`)
+    })
+}
+
 const searchUserByEmail = (email) => {
   return UserSchema.findOne({ email })
     .then((user) => user)
@@ -50,6 +58,7 @@ const addPost = (id, data) => {
 }
 
 module.exports = {
+  searchUserById,
   searchUserByEmail,
   createUser,
   updateUser,

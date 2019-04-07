@@ -1,19 +1,23 @@
 const { userAction, postAction, authAction } = require('../actions')
+const validateAuthorization = require('./authorization')
 
-const { getUserId } = require("../utils")
+const login = (_, args, context) => {
+  return authAction.login(args.email, args.password)
+}
 
 const signUp = (_, args) => authAction.signup(args.data)
 
 const CreateUser = (_, args) => userAction.createUser(args.data)
 const UpdateUser = (_, args) => userAction.updateUser(args.id, args.data)
 
-const CreatePost = (_, args) => postAction.createPost(args.data)
-const UpdatePost = (_, args) => postAction.updatePost(args.id, args.data)
+const CreatePost = (_, args, context) => validateAuthorization(context, () => postAction.createPost(args.data))
+const UpdatePost = (_, args, context) => validateAuthorization(context, () => postAction.updatePost(args.id, args.data))
 
-const AddPost = (_, args) => userAction.addPost(args.id, args.post)
+const AddPost = (_, args, context) => validateAuthorization(context, () => userAction.addPost(args.id, args.post))
 
 module.exports = {
   signUp,
+  login,
   CreateUser,
   UpdateUser,
   CreatePost,

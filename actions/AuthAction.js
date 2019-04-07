@@ -1,9 +1,8 @@
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
-const { createUser, searchUserByEmail } = require('./UserActions')
+const { createUser, searchUserByEmail, searchUserById } = require('./UserActions')
 
-// Replace this by env variable
 const SECRET_KEY = process.env.SECRET_KEY
 
 const signup = (data) => {
@@ -27,6 +26,18 @@ const login = (email, password) => {
     }
     ).catch(reject)
   })
+    .then(token => token)
+    .catch((err) => { console.log(`user not exist err ${err}`) })
+}
+
+function getUserByAuthorization (authorization) {
+  if (authorization) {
+    const token = authorization.replace('Bearer ', '')
+    const { _id } = jwt.verify(token, SECRET_KEY)
+    console.log(_id)
+    return searchUserById(_id)
+  }
+  throw new Error('Not authenticated')
 }
 
 const createToken = ({ email, _id }) => {
@@ -47,5 +58,6 @@ Date.prototype.addDays = function (days) {
 
 module.exports = {
   signup,
-  login
+  login,
+  getUserByAuthorization
 }
