@@ -34,7 +34,6 @@ function getUserByAuthorization (authorization) {
   if (authorization) {
     const token = authorization.replace('Bearer ', '')
     const { _id } = jwt.verify(token, SECRET_KEY)
-    console.log(_id)
     return searchUserById(_id)
   }
   throw new Error('Not authenticated')
