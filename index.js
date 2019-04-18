@@ -26,3 +26,5 @@ const server = new GraphQLServer({
 })
 
 server.start({ port: PORT }, () => console.log(`Server is running on localhost: ${PORT}`))
+
+module.exports = { schema }
