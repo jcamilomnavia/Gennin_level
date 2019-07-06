@@ -2,8 +2,8 @@
 ssh ubuntu@3.88.249.8 <<EOF
     cd ~/Gennin_level
     git pull origin master
-    curl -o-   
-https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh    
+    curl -o-
+https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh
  bash
     . ~/.nvm/nvm.sh
     nvm install v12.6.0
