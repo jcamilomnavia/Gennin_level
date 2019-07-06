@@ -39,4 +39,4 @@ PORT=4000 DB_URL=mongodb+srv://<user>:<password>@intime-ybwup.mongodb.net/<db_na
 ```
 PORT=4000 SECRET_KEY=799651B27B2E5D99D17C9CF675400 DB_URL=mongodb+srv://<user>:<password>@intime-ybwup.mongodb.net/<db_name>?retryWrites=true npm run dev
 ```
-jenkins support v2 git 
+jenkins support v3 git 
