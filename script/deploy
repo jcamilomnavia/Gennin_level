@@ -1,5 +1,5 @@
 #!/bin/sh
-ssh ubuntu@NODE.APP.SERVER.IP <<EOF
+ssh ubuntu@3.88.249.8 <<EOF
     cd ~/node-app
     git pull origin master
     curl -o-   
