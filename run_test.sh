@@ -1,0 +1,1 @@
+PORT=3000 SECRET_KEY=gokussjgblue DB_URL=mongodb+srv://admindb:Code0809@blackbelt-jxcmm.mongodb.net/genninBlackBeltTest?retryWrites=true npm run test
