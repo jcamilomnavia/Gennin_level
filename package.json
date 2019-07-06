@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon -e js,json,graphql index.js",
-    "test": "jest --detectOpenHandles --forceExit", 
+    "test": "jest --detectOpenHandles --forceExit",
     "lint": "standard --fix"
   },
   "repository": {
